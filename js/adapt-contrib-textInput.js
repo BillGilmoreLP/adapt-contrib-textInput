@@ -91,13 +91,13 @@ define(function(require) {
         },
 
         clearValidationError: function() {
-            this.$(".textinput-item-textbox").removeClass("textinput-validation-error");
+            this.$(".c-text-input__textbox").removeClass("c-text-input__textbox--error");
         },
 
         // Use to check if the user is allowed to submit the question
         canSubmit: function() {
             var canSubmit = true;
-            this.$(".textinput-item-textbox").each(function() {
+            this.$(".c-text-input__textbox").each(function() {
                 if ($(this).val() == "") {
                     canSubmit = false;
                 }
@@ -111,14 +111,14 @@ define(function(require) {
         },
 
         showValidationError: function() {
-            this.$(".textinput-item-textbox").addClass("textinput-validation-error");
+            this.$(".c-text-input__textbox").addClass("c-text-input__textbox--error");
         },
 
         //This preserve the state of the users answers for returning or showing the users answer
         storeUserAnswer: function() {
             var items = this.model.get('_items');
             _.each(items, function(item, index) {
-                item.userAnswer = this.$('.textinput-item-textbox').eq(index).val();
+                item.userAnswer = this.$('.c-text-input__textbox').eq(index).val();
             }, this);
 
             this.isCorrect();
@@ -222,7 +222,7 @@ define(function(require) {
             if (!this.model.get('_canShowMarking')) return;
 
             _.each(this.model.get('_items'), function(item, i) {
-                var $item = this.$('.textinput-item').eq(i);
+                var $item = this.$('.c-text-input__item').eq(i);
                 $item.removeClass('correct incorrect').addClass(item._isCorrect ? 'correct' : 'incorrect');
             }, this);
         },
@@ -240,7 +240,7 @@ define(function(require) {
 
         // Used by the question view to reset the look and feel of the component.
         resetQuestion: function() {
-            this.$('.textinput-item-textbox').prop('disabled', !this.model.get('_isEnabled')).val('');
+            this.$('.c-text-input__textbox').prop('disabled', !this.model.get('_isEnabled')).val('');
 
             this.model.set({
                 _isAtLeastOneCorrectSelection: false,
@@ -254,12 +254,12 @@ define(function(require) {
 
                 var correctAnswers = this.model.get('_answers');
                 _.each(this.model.get('_items'), function(item, index) {
-                    this.$(".textinput-item-textbox").eq(index).val(correctAnswers[index][0]);
+                    this.$(".c-text-input__textbox").eq(index).val(correctAnswers[index][0]);
                 }, this);
 
             } else {
                 _.each(this.model.get('_items'), function(item, index) {
-                    this.$(".textinput-item-textbox").eq(index).val(item._answers[0]);
+                    this.$(".c-text-input__textbox").eq(index).val(item._answers[0]);
                 }, this);
             }
 
@@ -267,7 +267,7 @@ define(function(require) {
 
         hideCorrectAnswer: function() {
             _.each(this.model.get('_items'), function(item, index) {
-                this.$(".textinput-item-textbox").eq(index).val(item.userAnswer);
+                this.$(".c-text-input__textbox").eq(index).val(item.userAnswer);
             }, this);
         },
 

@@ -1,4 +1,4 @@
-.textinput-item {
+.c-text-input__item {
     background-color: @item-color;
     padding: @item-padding;
     position: relative;
@@ -6,7 +6,7 @@
     margin-bottom: 2px;
 }
 
-.textinput-item label {
+.c-text-input__item label {
     background-color: transparent;
     line-height: 32px;
     padding: 0px;
@@ -19,12 +19,12 @@
     color: @item-text-color;
 }
 
-.textinput-item-prefix,
-.textinput-item-suffix {
+.c-text-input__prefix,
+.c-text-input__suffix {
     width: 20%;
 }
 
-.textinput-item-textbox {
+.c-text-input__textbox {
     box-sizing: border-box;
     padding: 0 5px;
     width: 100%;
@@ -33,7 +33,7 @@
         float: right;
     }
     height: 26px;
-    &.textinput-validation-error {
+    &.c-text-input__textbox--error {
         border: 2px solid @validation-error-border-color;
     }
     /*
@@ -45,20 +45,20 @@
     }
 }
 
-.textinput-item {
+.c-text-input__item {
     &.prefix,
     &.suffix {
-        .textinput-item-textbox {
+        .c-text-input__textbox {
             width: 80%
         }
     }
     &.prefix.suffix {
-        .textinput-item-textbox {
+        .c-text-input__textbox {
             width: 60%
         }
     }
     &.suffix {
-        .textinput-item-state {
+        .c-text-input__state {
             margin-right: 20%;
             .dir-rtl & {
                 margin-right: inherit;
@@ -68,37 +68,37 @@
     }
 }
 
-.textinput-widget {
+.c-text-input__widget {
     &.submitted {
-        .textinput-item {
+        .c-text-input__item {
             background-color: @item-color-disabled;
         }
     }
 
     &.show-user-answer {
         .incorrect {
-            .textinput-incorrect-icon {
+            .c-text-input__icon--incorrect {
                 display: block;
             }
         }
         .correct {
-            .textinput-correct-icon {
+            .c-text-input__icon--correct {
                 display: block;
             }
         }
     }
 
     &.show-correct-answer {
-        .textinput-select-icon {
+        .c-text-input__icon {
             display: none;
         }
-        .incorrect .textinput-correct-icon,
-        .correct .textinput-correct-icon {
+        .incorrect .c-text-input__icon--correct,
+        .correct .c-text-input__icon--correct {
             display: block;
         }
     }
 
-    .textinput-item-state {
+    .c-text-input__state {
         background: none;
         position: absolute;
         right: (@icon-size/2);
@@ -113,12 +113,12 @@
         z-index: 0;
     }
 
-    .textinput-correct-icon {
+    .c-text-input__icon--correct {
         color: @icon-correct-color;
         display: none;
     }
 
-    .textinput-incorrect-icon {
+    .c-text-input__icon--incorrect {
         color: @icon-incorrect-color;
         display: none;
     }
